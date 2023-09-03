@@ -20,7 +20,9 @@ function App(props) {
     />
   ));
   const [tasks, setTasks] = useState(props.tasks);
-  const taskList = tasks.map((task) => (
+  const taskList = tasks
+  .filter(FILTER_MAP[filter])
+  .map((task) => (
     <Todo
       id={task.id}
       name={task.name}
